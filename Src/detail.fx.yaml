@@ -1,0 +1,611 @@
+detail As screen:
+    OnVisible: |+
+        =Set( remoteday, Text(Date(
+                Value(Text(DateValue(First(Split( Gallery1.Selected.'Remote Working Schedule', "," )).Result,"en-US"),"[$-en-US]yyyy")),
+                Value(Text(DateValue(First(Split( Gallery1.Selected.'Remote Working Schedule', "," )).Result,"en-US"),"[$-en-US]mm")),
+                Value(1)), "[$-en-US]")  );
+        Set(currentday, Text(Date(Value(Text(Now(),"[$-en-US]yyyy")),Value(Text(Now(),"[$-en-US]mm")),Value(1)), "[$-en-US]"));
+        Set(_Deletevisible,"disabled");
+        If(
+            Value(remoteday)<Value(currentday)
+            ,Set(_Updatevisible,"disabled"),Set(_Updatevisible,""));
+        If(Gallery1.Selected.'Approval Status'="Submitted",Set(_Deletevisible,""));
+        
+        
+
+    FormViewer3 As formViewer:
+        DataSource: ='Remote Working Schedule Online Form'
+        Height: =966
+        Item: =Gallery1.Selected
+        Width: =640
+        Y: =85
+        ZIndex: =1
+
+        "'Submit Date_DataCard2' As typedDataCard.textualViewCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="SubmitDate"
+            Default: =ThisItem.'Submit Date'
+            DisplayMode: =DisplayMode.View
+            DisplayName: ="Submit Date"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =640
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+            DataCardKey66 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue64 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =21
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey66.Y + DataCardKey66.Height + 5
+                ZIndex: =2
+
+        "'Employee ID in Workday_DataCard2' As typedDataCard.textualViewCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="EmployeeIDinWorkday"
+            Default: =ThisItem.'Employee ID in Workday'
+            DisplayMode: =DisplayMode.View
+            DisplayName: ="Employee ID in Workday"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =640
+            X: =0
+            Y: =1
+            ZIndex: =1
+
+            DataCardKey54 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue52 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =21
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey54.Y + DataCardKey54.Height + 5
+                ZIndex: =2
+
+        "'Employee Name_DataCard2' As typedDataCard.textualViewCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="EmployeeName"
+            Default: =ThisItem.'Employee Name'
+            DisplayMode: =DisplayMode.View
+            DisplayName: ="Employee Name"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =640
+            X: =0
+            Y: =2
+            ZIndex: =1
+
+            DataCardKey55 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue53 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =21
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey55.Y + DataCardKey55.Height + 5
+                ZIndex: =2
+
+        Position_DataCard5 As typedDataCard.textualViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Position"
+            Default: =ThisItem.Position
+            DisplayMode: =DisplayMode.View
+            DisplayName: ="Position"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =640
+            X: =0
+            Y: =3
+            ZIndex: =1
+
+            DataCardKey60 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue58 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =21
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey60.Y + DataCardKey60.Height + 5
+                ZIndex: =2
+
+        "'Office Address_DataCard1' As typedDataCard.textualViewCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="OfficeAddress"
+            Default: =ThisItem.'Office Address'
+            DisplayMode: =DisplayMode.View
+            DisplayName: ="Office Address"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =640
+            X: =0
+            Y: =4
+            ZIndex: =1
+
+            DataCardKey58 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue56 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =21
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey58.Y + DataCardKey58.Height + 5
+                ZIndex: =2
+
+        "'People Manager_DataCard5' As typedDataCard.textualViewCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="PeopleManager"
+            Default: =ThisItem.'People Manager'
+            DisplayMode: =DisplayMode.View
+            DisplayName: ="People Manager"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =640
+            X: =0
+            Y: =5
+            ZIndex: =1
+
+            DataCardKey62 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue60 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =21
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey62.Y + DataCardKey62.Height + 5
+                ZIndex: =2
+
+        "'Remote Working Schedule _DataCard5' As typedDataCard.textualViewCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="RemoteWorkingSchedule"
+            Default: =ThisItem.'Remote Working Schedule'
+            DisplayMode: =DisplayMode.Edit
+            DisplayName: ="Remote Working Schedule "
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =373
+            Required: =false
+            Width: =640
+            X: =0
+            Y: =6
+            ZIndex: =1
+
+            DataCardKey65 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue63 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =21
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey65.Y + DataCardKey65.Height + 5
+                ZIndex: =2
+
+            Button2_9 As button:
+                BorderStyle: =BorderStyle.None
+                DisplayMode: =If(_Updatevisible = "disabled",DisplayMode.Disabled)
+                Fill: =RGBA(136, 160, 209, 1)
+                Height: =70
+                OnSelect: =Navigate(date_selection)
+                Size: =19
+                Text: |-
+                    ="Update dates
+                    "
+                Width: =280
+                X: =180
+                Y: =224
+                ZIndex: =3
+
+            Label2_4 As label:
+                Align: =Align.Center
+                Color: =RGBA(255, 0, 0, 1)
+                Height: =70
+                Size: =19
+                Text: =CountRows(_selectedDate) & "  " & "days selected"
+                Width: =228
+                X: =206
+                Y: =294
+                ZIndex: =4
+
+        "'Remote Working Location_DataCard5' As typedDataCard.textualViewCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="RemoteWorkingLocation"
+            Default: =ThisItem.'Remote Working Location'
+            DisplayMode: =DisplayMode.View
+            DisplayName: ="Remote Working Location"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Visible: =false
+            Width: =640
+            X: =0
+            Y: =7
+            ZIndex: =1
+
+            DataCardKey64 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue62 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =21
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey64.Y + DataCardKey64.Height + 5
+                ZIndex: =2
+
+        "'Remote Working Contact Number_DataCard3' As typedDataCard.textualViewCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="RemoteWorkingContactNumber"
+            Default: =ThisItem.'Remote Working Contact Number'
+            DisplayMode: =DisplayMode.View
+            DisplayName: ="Remote Working Contact Number"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Visible: =false
+            Width: =640
+            X: =0
+            Y: =8
+            ZIndex: =1
+
+            DataCardKey63 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue61 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =21
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey63.Y + DataCardKey63.Height + 5
+                ZIndex: =2
+
+        "'Approval Status_DataCard5' As typedDataCard.textualViewCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="ApprovalStatus"
+            Default: =ThisItem.'Approval Status'
+            DisplayMode: =DisplayMode.View
+            DisplayName: ="Approval Status"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =640
+            X: =0
+            Y: =9
+            ZIndex: =1
+
+            DataCardKey61 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue59 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =21
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey61.Y + DataCardKey61.Height + 5
+                ZIndex: =2
+
+        Note_DataCard3 As typedDataCard.textualViewCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Note"
+            Default: =ThisItem.Note
+            DisplayMode: =DisplayMode.View
+            DisplayName: ="Note"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =40
+            Required: =false
+            Width: =640
+            X: =0
+            Y: =10
+            ZIndex: =1
+
+            DataCardKey67 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue65 As label:
+                AutoHeight: =true
+                DisplayMode: =Parent.DisplayMode
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =21
+                Text: =Parent.Default
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey67.Y + DataCardKey67.Height + 5
+                ZIndex: =2
+
+    Rectangle1_9 As rectangle:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        Fill: =RGBA(136, 160, 209, 1)
+        Height: =85
+        Width: =640
+        ZIndex: =2
+
+    Label1_7 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Font: =Font.'Lato Black'
+        Height: =85
+        Size: =25
+        Text: ="Submission Details"
+        Width: =560
+        X: =40
+        ZIndex: =3
+
+    Icon4_6 As icon.ChevronLeft:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =41
+        Icon: =Icon.ChevronLeft
+        OnSelect: |
+            =Navigate(mainpage)
+        Width: =41
+        X: =25
+        Y: =22
+        ZIndex: =4
+
+    Button2_5 As button:
+        BorderStyle: =BorderStyle.None
+        DisplayMode: =If(_Deletevisible = "disabled",DisplayMode.Disabled)
+        Fill: =RGBA(136, 160, 209, 1)
+        Height: =52
+        OnSelect: =Set(_Cancelpopup, true);
+        Size: =19
+        Text: ="Cancel"
+        Width: =211
+        X: =92
+        Y: =1073
+        ZIndex: =5
+
+    Button2_8 As button:
+        BorderStyle: =BorderStyle.None
+        DisplayMode: =If(_Updatevisible = "disabled",DisplayMode.Disabled)
+        Fill: =RGBA(136, 160, 209, 1)
+        Height: =52
+        OnSelect: |-
+            =Set(_staffemail,Office365Users.UserProfile(InfoAbout).Mail);Set(_name,Office365Users.UserProfile(InfoAbout).DisplayName);Set(_email, Office365Users.Manager(InfoAbout).Mail);
+            If(IsEmpty(_selectedDate),Notify("Remote working Schedule cannot be empty",NotificationType.Error,0),
+            Patch('Remote Working Schedule Online Form', First(Filter('Remote Working Schedule Online Form',Title = Gallery1.Selected.Title)),{'Remote Working Schedule':Concat(_selectedDate,Value &",")},{Update:"Y"},{'Approval Status':"Submitted"});
+            Notify("Record is updated",NotificationType.Success,0);
+            updaterecord.Run(_email,_name,_staffemail);
+            Back()
+            )
+        Size: =19
+        Text: ="Update "
+        Width: =211
+        X: =359
+        Y: =1073
+        ZIndex: =6
+
+    Group1 As group:
+        Height: =5
+        Width: =5
+        X: =60
+        Y: =60
+        ZIndex: =12
+
+        Rectangle2_5 As rectangle:
+            Fill: =RGBA(0, 0, 0, 0.55)
+            Height: =1136
+            Visible: =_Cancelpopup
+            Width: =640
+            ZIndex: =7
+
+        TextInput2_5 As text:
+            Align: =Align.Center
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =0
+            Default: |-
+                ="
+                
+                
+                
+                " & "Do you really want to cancel the record?"
+            DisplayMode: =DisplayMode.View
+            Height: =328
+            Mode: =TextMode.MultiLine
+            RadiusBottomLeft: =30
+            RadiusBottomRight: =30
+            RadiusTopLeft: =30
+            RadiusTopRight: =30
+            Size: =19
+            Visible: =_Cancelpopup
+            Width: =555
+            X: =42
+            Y: =264
+            ZIndex: =8
+
+        Label3_5 As label:
+            Align: =Align.Center
+            FontWeight: =FontWeight.Bold
+            Height: =70
+            Size: =25
+            Text: ="REMINDER"
+            Visible: =_Cancelpopup
+            Width: =560
+            X: =37
+            Y: =293
+            ZIndex: =9
+
+        Button3_5 As button:
+            BorderStyle: =BorderStyle.None
+            Fill: =RGBA(151, 0, 0, 1)
+            Height: =51
+            OnSelect: =Set(_Cancelpopup,false)
+            Text: ="No"
+            Visible: =_Cancelpopup
+            Width: =162
+            X: =359
+            Y: =518
+            ZIndex: =10
+
+        Button3_6 As button:
+            BorderStyle: =BorderStyle.None
+            Fill: =RGBA(127, 178, 57, 1)
+            Height: =51
+            OnSelect: |-
+                =If(First(Filter('Remote Working Schedule Online Form',Title = Gallery1.Selected.Title)).'Approval Status'="Processing",
+                Remove('Remote Working Schedule Online Form', Gallery1.Selected),
+                Patch('Remote Working Schedule Online Form', First(Filter('Remote Working Schedule Online Form',Title = Gallery1.Selected.Title)),{Delete:"Y"}));
+                Notify("Record is deleted",NotificationType.Success,500);
+                Set(_Cancelpopup,false);Back()
+            Text: ="Yes"
+            Visible: =_Cancelpopup
+            Width: =162
+            X: =131
+            Y: =518
+            ZIndex: =11
+

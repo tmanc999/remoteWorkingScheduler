@@ -1,0 +1,7 @@
+App As appinfo:
+    BackEnabled: =false
+    OnStart: |-
+        =Set(_popup, true);
+        
+        If(CountRows(Filter('Remote Working Schedule Online Form','People Manager'= Office365Users.UserProfile(InfoAbout.Text).DisplayName && 'Approval Status' = "Submitted" && Delete <> "Y"))>0, Set(_managerPopup,true), Set(_managerPopup, false))
+

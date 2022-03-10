@@ -1,0 +1,16 @@
+[
+  {
+    "Data": "[{\"Title\":\"Cheung, David\"},{\"Title\":\"Jiang, Feifei Vivian\"},{\"Title\":\"Ng, Yoke Lan\"},{\"Title\":\"Badoo, Adzlina\"},{\"Title\":\"Pungluang, Apisara\"},{\"Title\":\"Charoendechathon, Varaporn\"},{\"Title\":\"Chow, Heidi\"},{\"Title\":\"Ma, On Ki Angel\"},{\"Title\":\"Yip, Joanna\"},{\"Title\":\"Cheung, Germaine\"},{\"Title\":\"Liu, Shui King Candy\"},{\"Title\":\"Wong, Yuen Man Cathy\"},{\"Title\":\"Fung, Lori\"},{\"Title\":\"Huang, Jing Vicky\"},{\"Title\":\"Jia Xiang\"},{\"Title\":\"Bian, Xiaoting Bee\"},{\"Title\":\"Zhao, Jingjing (Lisa)\"},{\"Title\":\"Mu, Wenting\"},{\"Title\":\"Zhao, Qing Clarise\"},{\"Title\":\"Liu, Xiaoqing (Jane)\"},{\"Title\":\"Chiu, Li Ying Kate \"},{\"Title\":\"Ni, Wen Ting Ada\"},{\"Title\":\"Cheng, Chieh (Joanne)\"},{\"Title\":\"Lee, Fai Vida\"}]",
+    "IsSampleData": false,
+    "IsWritable": false,
+    "Name": "Table_query",
+    "OrderedColumnNames": [
+      "Title"
+    ],
+    "OriginalName": "Table_query",
+    "OriginalSchema": "*[Title:s]",
+    "Schema": "*[Title:s]",
+    "Token": "dummyToken",
+    "Type": "StaticDataSourceInfo"
+  }
+]

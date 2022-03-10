@@ -1,0 +1,9 @@
+[
+  {
+    "AddinConnectorId": "81abb0e9-cbb0-4870-8c6c-36a690f44f40",
+    "AddinId": "6d1f157d-95bf-406d-b65d-cfd3240f724e",
+    "Name": "Approve/reject",
+    "ServiceKind": "AddinWadl",
+    "Type": "ServiceInfo"
+  }
+]

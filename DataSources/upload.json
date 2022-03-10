@@ -1,0 +1,9 @@
+[
+  {
+    "AddinConnectorId": "64b14010-778e-4eb5-8da7-346c19b3de49",
+    "AddinId": "6d1f157d-95bf-406d-b65d-cfd3240f724e",
+    "Name": "upload",
+    "ServiceKind": "AddinWadl",
+    "Type": "ServiceInfo"
+  }
+]

@@ -1,0 +1,9 @@
+[
+  {
+    "AddinConnectorId": "ac37d5c4-0cd7-405f-99ed-d7c7a7810c5e",
+    "AddinId": "6d1f157d-95bf-406d-b65d-cfd3240f724e",
+    "Name": "sendemai",
+    "ServiceKind": "AddinWadl",
+    "Type": "ServiceInfo"
+  }
+]

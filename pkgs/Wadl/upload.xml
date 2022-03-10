@@ -1,0 +1,77 @@
+<application xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:service="https://msmanaged-na.azure-apim.net/apim/logicflows" xmlns:siena="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11" siena:serviceId="upload" xmlns="http://wadl.dev.java.net/2009/02">
+  <doc title="upload" />
+  <grammars>
+    <jsonTypes targetNamespace="https://msmanaged-na.azure-apim.net/apim/logicflows" xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+      <string name="ManualTriggerInput_Title_Value_def" />
+      <string name="ManualTriggerInput_EmployeeIDinWorkday_Value_def" />
+      <string name="ManualTriggerInput_EmployeeName_Value_def" />
+      <string name="ManualTriggerInput_EmployeeEmail_Value_def" />
+      <string name="ManualTriggerInput_BusinessLine_Value_def" />
+      <string name="ManualTriggerInput_OfficeAddress_Value_def" />
+      <string name="ManualTriggerInput_Country_Value_def" />
+      <string name="ManualTriggerInput_Position_Value_def" />
+      <string name="ManualTriggerInput_ManagerEmail_Value_def" />
+      <string name="ManualTriggerInput_RemoteWorkingSchedule_Value_def" />
+      <string name="ManualTriggerInput_Initializevariable_Value_def" />
+      <string name="ManualTriggerInput_ApprovalStatus_Value_def" />
+      <string name="ManualTriggerInput_PeopleManager_Value_def" />
+      <string name="ManualTriggerInput_RemoteWorkingContactNumber_Value_def" />
+      <string name="ManualTriggerInput_SubmitDate_Value_def" />
+      <object name="ManualTriggerInput">
+        <property name="Title_Value" type="string" />
+        <property name="EmployeeIDinWorkday_Value" type="string" />
+        <property name="EmployeeName_Value" type="string" />
+        <property name="EmployeeEmail_Value" type="string" />
+        <property name="BusinessLine_Value" type="string" />
+        <property name="OfficeAddress_Value" type="string" />
+        <property name="Country_Value" type="string" />
+        <property name="Position_Value" type="string" />
+        <property name="ManagerEmail_Value" type="string" />
+        <property name="RemoteWorkingSchedule_Value" type="string" />
+        <property name="Initializevariable_Value" type="string" />
+        <property name="ApprovalStatus_Value" type="string" />
+        <property name="PeopleManager_Value" type="string" />
+        <property name="RemoteWorkingContactNumber_Value" type="string" />
+        <property name="SubmitDate_Value" type="string" />
+      </object>
+    </jsonTypes>
+  </grammars>
+  <resources siena:authenticationProviderHref="#PowerAppAuth" base="https://msmanaged-na.azure-apim.net/apim/logicflows">
+    <resource path="/{connectionId}/triggers/manual/run">
+      <param style="template" name="connectionId" type="xs:string" required="true" />
+      <method siena:requiresAuthentication="true" name="POST" id="Run">
+        <doc title="Runs a logic flow trigger." />
+        <request>
+          <param style="query" name="api-version" type="xs:string" required="true" fixed="2015-02-01-preview">
+            <doc title="The api version" />
+          </param>
+          <representation mediaType="application/json">
+            <param style="plain" name="Title_Value" path="/Title_Value" type="xs:string" required="true" />
+            <param style="plain" name="EmployeeIDinWorkday_Value" path="/EmployeeIDinWorkday_Value" type="xs:string" required="true" />
+            <param style="plain" name="EmployeeName_Value" path="/EmployeeName_Value" type="xs:string" required="true" />
+            <param style="plain" name="EmployeeEmail_Value" path="/EmployeeEmail_Value" type="xs:string" required="true" />
+            <param style="plain" name="BusinessLine_Value" path="/BusinessLine_Value" type="xs:string" required="true" />
+            <param style="plain" name="OfficeAddress_Value" path="/OfficeAddress_Value" type="xs:string" required="true" />
+            <param style="plain" name="Country_Value" path="/Country_Value" type="xs:string" required="true" />
+            <param style="plain" name="Position_Value" path="/Position_Value" type="xs:string" required="true" />
+            <param style="plain" name="ManagerEmail_Value" path="/ManagerEmail_Value" type="xs:string" required="true" />
+            <param style="plain" name="RemoteWorkingSchedule_Value" path="/RemoteWorkingSchedule_Value" type="xs:string" required="true" />
+            <param style="plain" name="Initializevariable_Value" path="/Initializevariable_Value" type="xs:string" required="true" />
+            <param style="plain" name="ApprovalStatus_Value" path="/ApprovalStatus_Value" type="xs:string" required="true" />
+            <param style="plain" name="PeopleManager_Value" path="/PeopleManager_Value" type="xs:string" required="true" />
+            <param style="plain" name="RemoteWorkingContactNumber_Value" path="/RemoteWorkingContactNumber_Value" type="xs:string" required="true" />
+            <param style="plain" name="SubmitDate_Value" path="/SubmitDate_Value" type="xs:string" required="true" />
+          </representation>
+        </request>
+      </method>
+    </resource>
+  </resources>
+  <authenticationProviders xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <connectionProvider id="PowerAppAuth" siena:connectionProviderId="logicflows" />
+  </authenticationProviders>
+  <template xmlns="http://schemas.microsoft.com/MicrosoftProjectSiena/WADL/2014/11">
+    <variable name="connectionId">
+      <modifyParams style="template" name="connectionId" attribute="fixed" />
+    </variable>
+  </template>
+</application>
